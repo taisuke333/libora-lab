@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LibOra（リブオラ）は、採用の意思決定を支える壁打ち顧問サービスです。LINE/Slackで採用の相談をいつでも。内製化前提の採用支援。">
+  <meta property="og:title" content="LibOra｜採用の判断を、ひとりで抱えない。">
+  <meta property="og:description" content="採用が止まる原因の多くは「進行不全」「基準不在」「属人化」。施策の前に"型"を整え、社内で回る採用に近づけます。">
+  <meta property="og:type" content="website">
+  <title>LibOra｜採用の判断を、ひとりで抱えない。</title>
+  <style>
+    /* ===== CSS Reset & Variables ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #3A5F77;
+      --color-primary-dark: #2d4a5e;
+      --color-primary-light: #4e7a96;
+      --color-accent: #E87C42;
+      --color-accent-dark: #d06830;
+      --color-bg: #ffffff;
+      --color-bg-alt: #F8F9FA;
+      --color-text: #1a1a1a;
+      --color-text-muted: #6b7280;
+      --color-border: #e5e7eb;
+      --font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      --max-width: 1080px;
+      --radius: 8px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    img { max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ===== Utility ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--alt {
+      background: var(--color-bg-alt);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn--accent {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .btn--accent:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(232, 124, 66, 0.35);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn--outline:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .btn--lg {
+      padding: 18px 44px;
+      font-size: 16px;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header__logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .header__logo span {
+      color: var(--color-accent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav__link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav__link:hover {
+      color: var(--color-primary);
+    }
+
+    .nav__cta {
+      background: var(--color-accent);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .nav__cta:hover {
+      background: var(--color-accent-dark);
+      color: #fff;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav--mobile {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav--mobile.is-open {
+      display: flex;
+    }
+
+    .nav--mobile .nav__link {
+      font-size: 15px;
+      color: var(--color-text);
+    }
+
+    .nav--mobile .nav__cta {
+      text-align: center;
+      padding: 12px;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 60px;
+      background: linear-gradient(135deg, #f0f5f8 0%, #e8f0f5 50%, #f8f9fa 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(58, 95, 119, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 124, 66, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      padding: 64px 0;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(58, 95, 119, 0.08);
+      color: var(--color-primary);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero__eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .hero__headline {
+      font-size: clamp(30px, 4.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero__headline em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .hero__sub {
+      font-size: clamp(14px, 1.8vw, 17px);
+      color: #4b5563;
+      max-width: 580px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero__benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+
+    .hero__benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--color-text);
+    }
+
+    .hero__benefit-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      margin-top: 1px;
+    }
+
+    .hero__benefit-text strong {
+      display: block;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 2px;
+    }
+
+    .hero__benefit-text span {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .hero__cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero__note {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      border-left: 3px solid var(--color-border);
+      padding-left: 12px;
+      line-height: 1.6;
+    }
+
+    /* ===== Pain ===== */
+    .pain__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .pain__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .pain__item:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--color-primary-light);
+    }
+
+    .pain__icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pain__text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    /* ===== Services ===== */
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .service-card__num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .service-card__icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .service-card__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .service-card__desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== Pricing ===== */
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      transition: box-shadow 0.2s;
+    }
+
+    .pricing-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .pricing-card--featured {
+      border-color: var(--color-primary);
+      position: relative;
+    }
+
+    .pricing-card__badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-card__name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .pricing-card__price {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-card__price span {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .pricing-card__tax {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .pricing-card__divider {
+      height: 1px;
+      background: var(--color-border);
+      margin-bottom: 20px;
+    }
+
+    .pricing-card__features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pricing-card__feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    .pricing-card__feature::before {
+      content: '✓';
+      color: var(--color-primary);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing__rules {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 32px;
+    }
+
+    .pricing__rule {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .pricing__rule::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      flex-shrink: 0;
+    }
+
+    /* ===== Results ===== */
+    .result-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 32px;
+      border-left: 4px solid var(--color-primary);
+      box-shadow: var(--shadow);
+    }
+
+    .result-card__tag {
+      display: inline-block;
+      background: rgba(58, 95, 119, 0.08);
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .result-card__company {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .result-card__subtitle {
+      font-size: 13px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .result-card__items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .result-card__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .result-card__item::before {
+      content: '→';
+      color: var(--color-primary-light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ===== Advanced ===== */
+    .advanced__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .advanced-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .advanced-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .advanced-card__price {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .advanced-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .advanced-card__desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .advanced__flow {
+      margin-top: 32px;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+
+    .advanced__flow-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+
+    .advanced__flow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .advanced__flow-step {
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 100px;
+    }
+
+    .advanced__flow-arrow {
+      color: var(--color-text-muted);
+      font-size: 18px;
+    }
+
+    /* ===== Fit ===== */
+    .fit__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .fit-card {
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+
+    .fit-card--yes {
+      background: rgba(58, 95, 119, 0.06);
+      border: 1px solid rgba(58, 95, 119, 0.2);
+    }
+
+    .fit-card--no {
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--color-border);
+    }
+
+    .fit-card__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .fit-card__badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .fit-card--yes .fit-card__badge {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .fit-card--no .fit-card__badge {
+      background: #e5e7eb;
+      color: #6b7280;
+    }
+
+    .fit-card__title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .fit-card--yes .fit-card__title {
+      color: var(--color-primary-dark);
+    }
+
+    .fit-card--no .fit-card__title {
+      color: var(--color-text-muted);
+    }
+
+    .fit-card__items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fit-card__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .fit-card--yes .fit-card__item {
+      color: var(--color-text);
+    }
+
+    .fit-card--no .fit-card__item {
+      color: var(--color-text-muted);
+    }
+
+    .fit-card__bullet {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== FAQ ===== */
+    .faq__list {
+      max-width: 740px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .faq__item {
+      border-bottom: 1px solid var(--color-border);
+      background: #fff;
+    }
+
+    .faq__item:last-child {
+      border-bottom: none;
+    }
+
+    .faq__question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 24px;
+      text-align: left;
+      font-family: var(--font-family);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+
+    .faq__question:hover {
+      background: var(--color-bg-alt);
+    }
+
+    .faq__q-mark {
+      color: var(--color-accent);
+      font-weight: 800;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .faq__chevron {
+      margin-left: auto;
+      flex-shrink: 0;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      transition: transform 0.3s;
+    }
+
+    .faq__item.is-open .faq__chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq__answer {
+      display: none;
+      padding: 0 24px 22px 24px;
+      margin-left: 28px;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .faq__answer.is-open {
+      display: block;
+    }
+
+    /* ===== Contact ===== */
+    .contact {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      color: #fff;
+    }
+
+    .contact .section-title {
+      color: #fff;
+    }
+
+    .contact .section-desc {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .contact__inner {
+      text-align: center;
+    }
+
+    .contact__inner .section-title {
+      font-size: clamp(22px, 3vw, 32px);
+    }
+
+    .contact__actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .btn--white {
+      background: #fff;
+      color: var(--color-primary-dark);
+    }
+
+    .btn--white:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 36px 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer__logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .footer__logo span {
+      color: var(--color-accent);
+    }
+
+    .footer__copy {
+      font-size: 12px;
+    }
+
+    /* ===== Scroll Animation ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero__cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .fit__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing__rules {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .faq__list {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__headline {
+        font-size: 26px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .service-card, .pricing-card, .advanced-card {
+        padding: 20px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">Lib<span>Ora</span></a>
+      <nav class="nav">
+        <a href="#service" class="nav__link">サービス内容</a>
+        <a href="#pricing" class="nav__link">料金</a>
+        <a href="#faq" class="nav__link">よくある質問</a>
+        <a href="#contact" class="nav__cta">無料相談する</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="nav--mobile" id="nav-mobile">
+      <a href="#service" class="nav__link">サービス内容</a>
+      <a href="#pricing" class="nav__link">料金</a>
+      <a href="#faq" class="nav__link">よくある質問</a>
+      <a href="#contact" class="nav__cta btn btn--accent">無料相談する</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__eyebrow">採用の壁打ち顧問 · LINE/Slackで相談</div>
+        <h1 class="hero__headline">
+          採用の判断を、<br><em>ひとりで抱えない。</em><br>
+          <span style="font-size: 0.65em; letter-spacing: -0.01em;">LINE/Slackで"採用の壁打ち"をいつでも。</span>
+        </h1>
+        <p class="hero__sub">
+          採用が止まる原因の多くは「進行不全」「基準不在」「属人化」。<br>
+          施策の前に<strong>"型"</strong>を整え、社内で回る採用に近づけます。
+        </p>
+        <div class="hero__benefits">
+          <div class="hero__benefit">
+            <div class="hero__benefit-icon">⚡</div>
+            <div class="hero__benefit-text">
+              <strong>意思決定が速くなる</strong>
+              <span>求人・面接・合否・クロージングの判断をサポート</span>
+            </div>
+          </div>
+          <div class="hero__benefit">
+            <div class="hero__benefit-icon">🎯</div>
+            <div class="hero__benefit-text">
+              <strong>ミスマッチが減る</strong>
+              <span>要件・面接基準・評価の整理で採用精度が上がる</span>
+            </div>
+          </div>
+          <div class="hero__benefit">
+            <div class="hero__benefit-icon">🔄</div>
+            <div class="hero__benefit-text">
+              <strong>属人化を解消できる</strong>
+              <span>会議体・KPI・テンプレの整備で組織の採用力を底上げ</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__cta-group">
+          <a href="#contact" class="btn btn--accent btn--lg">無料で相談する（30分）</a>
+          <a href="#service" class="btn btn--outline">サービス内容を見る</a>
+        </div>
+        <p class="hero__note">
+          採用代行（実務の丸投げ）は行いません。内製化前提の支援です。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pain ===== -->
+  <section class="section section--alt" id="pain">
+    <div class="container">
+      <span class="section-label">こんな悩みありませんか？</span>
+      <h2 class="section-title">採用が"進まない"のには、理由がある。</h2>
+      <p class="section-desc">
+        多くの企業の採用課題は、施策の問題ではなく<strong>設計・体制・判断の問題</strong>です。
+      </p>
+      <div class="pain__grid">
+        <div class="pain__item fade-in">
+          <div class="pain__icon">🌀</div>
+          <p class="pain__text">採用の優先順位が決められず、施策が散っている</p>
+        </div>
+        <div class="pain__item fade-in">
+          <div class="pain__icon">⏱</div>
+          <p class="pain__text">現場が動かず、面接設定・合否が遅れて失注する</p>
+        </div>
+        <div class="pain__item fade-in">
+          <div class="pain__icon">⚖️</div>
+          <p class="pain__text">面接官ごとに評価がバラバラで、ミスマッチが増える</p>
+        </div>
+        <div class="pain__item fade-in">
+          <div class="pain__icon">📦</div>
+          <p class="pain__text">採用代行を検討しているが、ノウハウが残らないのが不安</p>
+        </div>
+        <div class="pain__item fade-in">
+          <div class="pain__icon">🙋</div>
+          <p class="pain__text">兼務人事で手が回らず、相談相手がいない</p>
+        </div>
+        <div class="pain__item fade-in">
+          <div class="pain__icon">💭</div>
+          <p class="pain__text">いまの外注/代行にモヤモヤしているが、どう立て直せばいいか分からない</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="section" id="service">
+    <div class="container">
+      <span class="section-label">サービス内容</span>
+      <h2 class="section-title">採用の"設計"を、<br>一緒に整えます。</h2>
+      <p class="section-desc">
+        相談・ツール提供・MTGを組み合わせて、採用が社内で回る状態をつくります。
+      </p>
+      <div class="services__grid">
+        <div class="service-card fade-in">
+          <div class="service-card__num">01</div>
+          <div class="service-card__icon">💬</div>
+          <h3 class="service-card__title">LINE/Slackで<br>随時相談（壁打ち）</h3>
+          <p class="service-card__desc">
+            求人票・要件定義・スカウト文面・面接設計・評価基準・進行管理・採用会議の設計など、採用のあらゆる判断を一緒に考えます。
+          </p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-card__num">02</div>
+          <div class="service-card__icon">📋</div>
+          <h3 class="service-card__title">テンプレ・型の提供</h3>
+          <p class="service-card__desc">
+            KPI表・週次採用会議アジェンダ・面接評価シート・候補者への連絡テンプレなど、すぐ使える型をご提供します。
+          </p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-card__num">03</div>
+          <div class="service-card__icon">📅</div>
+          <h3 class="service-card__title">月次/隔週MTG</h3>
+          <p class="service-card__desc">
+            状況整理 → 詰まりの特定 → 次の打ち手の決定まで。定例MTGで採用の歯車を回し続けます。
+          </p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-card__num">04</div>
+          <div class="service-card__icon">🔍</div>
+          <h3 class="service-card__title">「このままでは厳しい」の<br>判断も明確に</h3>
+          <p class="service-card__desc">
+            要件の曖昧さ・現場巻き込み不足・会議体不在・KPI未整備など、問題の根本を正直にフィードバックします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section class="section section--alt" id="pricing">
+    <div class="container">
+      <span class="section-label">料金</span>
+      <h2 class="section-title">シンプルな2プラン。</h2>
+      <p class="section-desc">
+        採用の相談頻度・MTG回数に応じてお選びいただけます。
+      </p>
+      <div class="pricing__grid">
+        <div class="pricing-card fade-in">
+          <div class="pricing-card__name">ライト</div>
+          <div class="pricing-card__price">10<span>万円</span></div>
+          <div class="pricing-card__tax">/ 月・税別</div>
+          <div class="pricing-card__divider"></div>
+          <ul class="pricing-card__features">
+            <li class="pricing-card__feature">LINE/Slack相談（平日）</li>
+            <li class="pricing-card__feature">月1回 MTG（60分）</li>
+            <li class="pricing-card__feature">テンプレ・型の提供</li>
+            <li class="pricing-card__feature">採用KPI設計サポート</li>
+          </ul>
+        </div>
+        <div class="pricing-card pricing-card--featured fade-in">
+          <div class="pricing-card__badge">おすすめ</div>
+          <div class="pricing-card__name">スタンダード</div>
+          <div class="pricing-card__price">20<span>万円</span></div>
+          <div class="pricing-card__tax">/ 月・税別</div>
+          <div class="pricing-card__divider"></div>
+          <ul class="pricing-card__features">
+            <li class="pricing-card__feature">LINE/Slack相談（平日）</li>
+            <li class="pricing-card__feature">月2回 MTG（60分×2）または隔週30分×4</li>
+            <li class="pricing-card__feature">テンプレ・型の提供</li>
+            <li class="pricing-card__feature">採用KPI設計サポート</li>
+            <li class="pricing-card__feature">採用会議体の設計・立ち上げ支援</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pricing__rules">
+        <div class="pricing__rule">返信目安：平日24時間以内</div>
+        <div class="pricing__rule">対象：採用/人事の意思決定・設計</div>
+        <div class="pricing__rule">実務代行は対象外</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Results ===== -->
+  <section class="section" id="results">
+    <div class="container">
+      <span class="section-label">支援実績</span>
+      <h2 class="section-title">実際の支援事例。</h2>
+      <div class="result-card fade-in">
+        <div class="result-card__tag">進行中</div>
+        <div class="result-card__company">IT系中小企業（従業員30名規模）</div>
+        <div class="result-card__subtitle">中途採用の採用伴走支援</div>
+        <ul class="result-card__items">
+          <li class="result-card__item">採用KPI設計（ターゲット・媒体・各ステージの目標数値を整理）</li>
+          <li class="result-card__item">週次採用会議の立ち上げ（アジェンダ・進行・議事録テンプレ作成）</li>
+          <li class="result-card__item">書類選考フローの構築（合否基準の言語化・スコアリングシート導入）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Advanced ===== -->
+  <section class="section section--alt" id="advanced">
+    <div class="container">
+      <span class="section-label">さらに深くやりたい場合</span>
+      <h2 class="section-title">採用OSを、根本から整える。</h2>
+      <p class="section-desc">
+        壁打ち顧問から始めて、課題が明確になったら次のステップへ。
+      </p>
+      <div class="advanced__grid">
+        <div class="advanced-card fade-in">
+          <div class="advanced-card__price">20万円（税別）</div>
+          <h3 class="advanced-card__title">2週間診断</h3>
+          <p class="advanced-card__desc">
+            採用の詰まりを徹底的に特定し、内製化ロードマップを作成。現状分析から改善優先度の整理まで、2週間で一気に見通しをつけます。
+          </p>
+        </div>
+        <div class="advanced-card fade-in">
+          <div class="advanced-card__price">150万円（税別）/ 3ヶ月</div>
+          <h3 class="advanced-card__title">採用代行 卒業・移管プログラム</h3>
+          <p class="advanced-card__desc">
+            採用OSを実装し、移管完了まで支援。代行依存からの脱却を、3ヶ月で完結します。採用ノウハウを社内に根付かせます。
+          </p>
+        </div>
+      </div>
+      <div class="advanced__flow fade-in">
+        <div class="advanced__flow-title">一本道でつながる支援の流れ</div>
+        <div class="advanced__flow-steps">
+          <span class="advanced__flow-step">壁打ち顧問</span>
+          <span class="advanced__flow-arrow">→</span>
+          <span class="advanced__flow-step">2週間診断</span>
+          <span class="advanced__flow-arrow">→</span>
+          <span class="advanced__flow-step">卒業・移管プログラム</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Fit ===== -->
+  <section class="section" id="fit">
+    <div class="container">
+      <span class="section-label">向いている会社 / 向いていない会社</span>
+      <h2 class="section-title">LibOraが合う会社・合わない会社。</h2>
+      <p class="section-desc">
+        ミスマッチを防ぐため、正直にお伝えします。
+      </p>
+      <div class="fit__grid">
+        <div class="fit-card fit-card--yes fade-in">
+          <div class="fit-card__header">
+            <div class="fit-card__badge">向いている</div>
+          </div>
+          <ul class="fit-card__items">
+            <li class="fit-card__item">
+              <span class="fit-card__bullet">✓</span>
+              兼務人事でもいいので、社内で採用を回したい
+            </li>
+            <li class="fit-card__item">
+              <span class="fit-card__bullet">✓</span>
+              現場を巻き込みつつ、型を整えたい
+            </li>
+            <li class="fit-card__item">
+              <span class="fit-card__bullet">✓</span>
+              採用代行に頼り切らず、最終的に卒業したい
+            </li>
+          </ul>
+        </div>
+        <div class="fit-card fit-card--no fade-in">
+          <div class="fit-card__header">
+            <div class="fit-card__badge">向いていない</div>
+          </div>
+          <ul class="fit-card__items">
+            <li class="fit-card__item">
+              <span class="fit-card__bullet">✕</span>
+              採用実務を丸投げしたい（代行のみ希望）
+            </li>
+            <li class="fit-card__item">
+              <span class="fit-card__bullet">✕</span>
+              社内で週次の意思決定時間を確保できない
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section--alt" id="faq">
+    <div class="container">
+      <span class="section-label">よくある質問</span>
+      <h2 class="section-title">気になること、まとめました。</h2>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__question">
+            <span class="faq__q-mark">Q</span>
+            <span>採用代行を使っていても相談できますか？</span>
+            <span class="faq__chevron">▼</span>
+          </button>
+          <div class="faq__answer">
+            可能です。現在利用している採用代行との並走も問題ありません。代行からの卒業（移管）に向けた整理から入ることもできます。まずはご相談ください。
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            <span class="faq__q-mark">Q</span>
+            <span>丸投げは可能ですか？</span>
+            <span class="faq__chevron">▼</span>
+          </button>
+          <div class="faq__answer">
+            不可です。LibOraは採用実務の代行ではなく、採用が社内で回るための設計・判断支援を行うサービスです。内製化前提の支援のため、意思決定に関わる人材が社内にいることが前提となります。
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            <span class="faq__q-mark">Q</span>
+            <span>何を相談していいですか？</span>
+            <span class="faq__chevron">▼</span>
+          </button>
+          <div class="faq__answer">
+            採用要件の整理・求人票の作成・面接設計・評価基準・進行管理・採用会議体の設計・KPI設定など、"採用が回るための設計"全般についてご相談いただけます。「これは相談していいの？」というものも、まずはお気軽にどうぞ。
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question">
+            <span class="faq__q-mark">Q</span>
+            <span>どのような規模・業種に対応していますか？</span>
+            <span class="faq__chevron">▼</span>
+          </button>
+          <div class="faq__answer">
+            従業員10〜100名規模のスタートアップ・中小企業を主な対象としています。業種は問いませんが、IT・テック系・サービス業の企業での支援実績があります。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact__inner">
+        <span class="section-label" style="color: rgba(255,255,255,0.6);">お問い合わせ</span>
+        <h2 class="section-title">まずは無料で30分、<br>話しましょう。</h2>
+        <p class="section-desc" style="margin: 0 auto 0; text-align: center;">
+          現状をお聞きした上で、最適なプランをご提案します。<br>
+          「相談すべきことがあるかどうか」から話せます。
+        </p>
+        <div class="contact__actions">
+          <a href="mailto:info@libora-lab.com" class="btn btn--accent btn--lg">
+            お問い合わせはこちら
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Lib<span>Ora</span></div>
+        <p class="footer__copy">© 2026 LibOra All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Hamburger Menu =====
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('nav-mobile');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('is-open');
+      navMobile.classList.toggle('is-open');
+    });
+
+    // Close mobile nav on link click
+    navMobile.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('is-open');
+        navMobile.classList.remove('is-open');
+      });
+    });
+
+    // ===== FAQ Accordion =====
+    document.querySelectorAll('.faq__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const answer = item.querySelector('.faq__answer');
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all
+        document.querySelectorAll('.faq__item').forEach(i => {
+          i.classList.remove('is-open');
+          i.querySelector('.faq__answer').classList.remove('is-open');
+        });
+
+        // Toggle clicked
+        if (!isOpen) {
+          item.classList.add('is-open');
+          answer.classList.add('is-open');
+        }
+      });
+    });
+
+    // ===== Scroll Fade-in Animation =====
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ===== Header scroll shadow =====
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.style.boxShadow = '0 2px 16px rgba(0,0,0,0.1)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
