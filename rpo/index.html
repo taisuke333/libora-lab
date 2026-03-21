@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LibOra（リブオラ）は、採用の意思決定を支える壁打ち顧問サービスです。LINE/Slackで採用の相談をいつでも。内製化前提の採用支援。">
-  <meta property="og:title" content="LibOra｜採用の判断を、ひとりで抱えない。">
+  <meta name="description" content="採用伴走サービス｜LibOra（リブオラ）。LINE/Slackで採用の相談をいつでも。内製化前提の採用支援。">
+  <meta property="og:title" content="採用伴走サービス｜LibOra｜採用の判断を、ひとりで抱えない。">
   <meta property="og:description" content="採用が止まる原因の多くは「進行不全」「基準不在」「属人化」。施策の前に"型"を整え、社内で回る採用に近づけます。">
   <meta property="og:type" content="website">
-  <title>LibOra｜採用の判断を、ひとりで抱えない。</title>
+  <title>採用伴走サービス｜LibOra｜採用の判断を、ひとりで抱えない。</title>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F814WCQ1CV"></script>
   <script>
@@ -16,6 +16,10 @@
     gtag('js', new Date());
     gtag('config', 'G-F814WCQ1CV');
   </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ===== CSS Reset & Variables ===== */
     *, *::before, *::after {
@@ -35,7 +39,8 @@
       --color-text: #1a1a1a;
       --color-text-muted: #6b7280;
       --color-border: #e5e7eb;
-      --font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      --font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      --font-family-en: 'Poppins', sans-serif;
       --max-width: 1080px;
       --radius: 8px;
       --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -66,7 +71,7 @@
     }
 
     .section {
-      padding: 80px 0;
+      padding: 64px 0;
     }
 
     .section--alt {
@@ -75,17 +80,18 @@
 
     .section-label {
       display: inline-block;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--color-accent);
       margin-bottom: 12px;
+      font-family: var(--font-family-en);
     }
 
     .section-title {
       font-size: clamp(22px, 3vw, 32px);
-      font-weight: 700;
+      font-weight: 800;
       color: var(--color-primary-dark);
       line-height: 1.4;
       margin-bottom: 16px;
@@ -96,6 +102,7 @@
       color: var(--color-text-muted);
       max-width: 640px;
       margin-bottom: 48px;
+      line-height: 1.8;
     }
 
     .btn {
@@ -109,6 +116,7 @@
       cursor: pointer;
       border: none;
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      font-family: var(--font-family);
     }
 
     .btn--accent {
@@ -138,6 +146,20 @@
       font-size: 16px;
     }
 
+    /* ===== Wave Divider ===== */
+    .wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-bottom: -2px;
+    }
+
+    .wave svg {
+      display: block;
+      width: 100%;
+    }
+
     /* ===== Header ===== */
     .header {
       position: fixed;
@@ -165,6 +187,7 @@
       font-weight: 800;
       color: var(--color-primary);
       letter-spacing: -0.02em;
+      font-family: var(--font-family-en);
     }
 
     .header__logo span {
@@ -211,6 +234,8 @@
       gap: 5px;
       cursor: pointer;
       padding: 4px;
+      background: none;
+      border: none;
     }
 
     .hamburger span {
@@ -260,7 +285,7 @@
       display: flex;
       align-items: center;
       padding-top: 60px;
-      background: linear-gradient(135deg, #f0f5f8 0%, #e8f0f5 50%, #f8f9fa 100%);
+      background: linear-gradient(140deg, #e8f2f8 0%, #f0f5f8 40%, #fdf6f1 100%);
       position: relative;
       overflow: hidden;
     }
@@ -268,24 +293,24 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(58, 95, 119, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(58, 95, 119, 0.07) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero::after {
       content: '';
       position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
+      bottom: -20%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(232, 124, 66, 0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232, 124, 66, 0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -293,7 +318,13 @@
       position: relative;
       z-index: 1;
       padding: 64px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
     }
+
+    .hero__content {}
 
     .hero__eyebrow {
       display: inline-flex;
@@ -301,7 +332,7 @@
       gap: 8px;
       background: rgba(58, 95, 119, 0.08);
       color: var(--color-primary);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       padding: 6px 14px;
       border-radius: 100px;
@@ -315,10 +346,11 @@
       height: 6px;
       border-radius: 50%;
       background: var(--color-accent);
+      flex-shrink: 0;
     }
 
     .hero__headline {
-      font-size: clamp(30px, 4.5vw, 52px);
+      font-size: clamp(28px, 4vw, 48px);
       font-weight: 800;
       line-height: 1.3;
       color: var(--color-primary-dark);
@@ -332,52 +364,51 @@
     }
 
     .hero__sub {
-      font-size: clamp(14px, 1.8vw, 17px);
+      font-size: clamp(14px, 1.6vw, 16px);
       color: #4b5563;
-      max-width: 580px;
-      line-height: 1.8;
-      margin-bottom: 40px;
+      max-width: 520px;
+      line-height: 1.9;
+      margin-bottom: 32px;
     }
 
-    .hero__benefits {
+    /* Stats */
+    .hero__stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .hero__stat {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 44px;
+      gap: 2px;
     }
 
-    .hero__benefit {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--color-text);
-    }
-
-    .hero__benefit-icon {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--color-primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      margin-top: 1px;
-    }
-
-    .hero__benefit-text strong {
-      display: block;
-      font-weight: 700;
+    .hero__stat-num {
+      font-size: 22px;
+      font-weight: 800;
       color: var(--color-primary-dark);
-      margin-bottom: 2px;
+      font-family: var(--font-family-en);
+      line-height: 1;
     }
 
-    .hero__benefit-text span {
+    .hero__stat-num span {
       font-size: 13px;
+      font-weight: 700;
+      font-family: var(--font-family);
+    }
+
+    .hero__stat-label {
+      font-size: 11px;
       color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    .hero__stat-divider {
+      width: 1px;
+      background: var(--color-border);
+      align-self: stretch;
     }
 
     .hero__cta-group {
@@ -396,6 +427,25 @@
       line-height: 1.6;
     }
 
+    /* Hero Image */
+    .hero__visual {
+      position: relative;
+    }
+
+    .hero__img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(58, 95, 119, 0.18);
+      position: relative;
+    }
+
+    .hero__img-wrap img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      display: block;
+    }
+
     /* ===== Pain ===== */
     .pain__grid {
       display: grid;
@@ -406,9 +456,10 @@
     .pain__item {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 14px;
       background: #fff;
       border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-primary-light);
       border-radius: var(--radius);
       padding: 20px;
       transition: box-shadow 0.2s, border-color 0.2s;
@@ -416,19 +467,36 @@
 
     .pain__item:hover {
       box-shadow: var(--shadow);
-      border-color: var(--color-primary-light);
+      border-left-color: var(--color-accent);
     }
 
     .pain__icon {
-      font-size: 20px;
       flex-shrink: 0;
-      margin-top: 2px;
+      width: 36px;
+      height: 36px;
+      background: rgba(58, 95, 119, 0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .pain__icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--color-primary);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .pain__text {
       font-size: 14px;
       line-height: 1.7;
       color: var(--color-text);
+      font-weight: 500;
     }
 
     /* ===== Services ===== */
@@ -442,26 +510,61 @@
       background: #fff;
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 32px 24px;
       transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
     .service-card:hover {
       box-shadow: var(--shadow-hover);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
     }
 
     .service-card__num {
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 0.1em;
       color: var(--color-accent);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      font-family: var(--font-family-en);
     }
 
     .service-card__icon {
-      font-size: 28px;
-      margin-bottom: 14px;
+      width: 48px;
+      height: 48px;
+      background: rgba(58, 95, 119, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .service-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-primary);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .service-card__title {
@@ -469,13 +572,13 @@
       font-weight: 700;
       color: var(--color-primary-dark);
       margin-bottom: 10px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .service-card__desc {
       font-size: 13px;
       color: var(--color-text-muted);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     /* ===== Pricing ===== */
@@ -524,20 +627,23 @@
       color: var(--color-text-muted);
       margin-bottom: 8px;
       text-transform: uppercase;
+      font-family: var(--font-family-en);
     }
 
     .pricing-card__price {
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 800;
       color: var(--color-primary-dark);
       line-height: 1;
       margin-bottom: 4px;
+      font-family: var(--font-family-en);
     }
 
     .pricing-card__price span {
       font-size: 16px;
       font-weight: 600;
       color: var(--color-text-muted);
+      font-family: var(--font-family);
     }
 
     .pricing-card__tax {
@@ -600,6 +706,154 @@
       border-radius: 50%;
       background: var(--color-primary-light);
       flex-shrink: 0;
+    }
+
+    /* ===== Mini CTA ===== */
+    .mini-cta {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      padding: 48px 0;
+    }
+
+    .mini-cta__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .mini-cta__text strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .mini-cta__text span {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* ===== Profile ===== */
+    .profile__inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .profile__card {
+      background: var(--color-primary-dark);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .profile__avatar {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .profile__avatar svg {
+      width: 40px;
+      height: 40px;
+      stroke: rgba(255,255,255,0.8);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+    }
+
+    .profile__name {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .profile__role {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+    }
+
+    .profile__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .profile__tag {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .profile__content {}
+
+    .profile__headline {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .profile__desc {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .profile__items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .profile__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .profile__item-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(58, 95, 119, 0.08);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .profile__item-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-primary);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     /* ===== Results ===== */
@@ -746,7 +1000,7 @@
 
     .fit-card {
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 32px 28px;
     }
 
     .fit-card--yes {
@@ -763,7 +1017,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .fit-card__badge {
@@ -783,23 +1037,10 @@
       color: #6b7280;
     }
 
-    .fit-card__title {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .fit-card--yes .fit-card__title {
-      color: var(--color-primary-dark);
-    }
-
-    .fit-card--no .fit-card__title {
-      color: var(--color-text-muted);
-    }
-
     .fit-card__items {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .fit-card__item {
@@ -819,9 +1060,18 @@
     }
 
     .fit-card__bullet {
-      font-size: 16px;
+      font-size: 15px;
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 2px;
+      font-weight: 700;
+    }
+
+    .fit-card--yes .fit-card__bullet {
+      color: var(--color-primary);
+    }
+
+    .fit-card--no .fit-card__bullet {
+      color: #9ca3af;
     }
 
     /* ===== FAQ ===== */
@@ -870,6 +1120,7 @@
       font-weight: 800;
       flex-shrink: 0;
       font-size: 16px;
+      font-family: var(--font-family-en);
     }
 
     .faq__chevron {
@@ -930,10 +1181,11 @@
     .btn--white {
       background: #fff;
       color: var(--color-primary-dark);
+      font-weight: 800;
     }
 
     .btn--white:hover {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       transform: translateY(-1px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
@@ -957,6 +1209,7 @@
       font-size: 20px;
       font-weight: 800;
       color: #fff;
+      font-family: var(--font-family-en);
     }
 
     .footer__logo span {
@@ -970,8 +1223,8 @@
     /* ===== Scroll Animation ===== */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
     .fade-in.is-visible {
@@ -980,9 +1233,29 @@
     }
 
     /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero__img-wrap img {
+        height: 360px;
+      }
+
+      .profile__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .profile__card {
+        max-width: 360px;
+      }
+    }
+
     @media (max-width: 768px) {
       .section {
-        padding: 60px 0;
+        padding: 48px 0;
       }
 
       .nav {
@@ -1014,6 +1287,11 @@
       .faq__list {
         max-width: 100%;
       }
+
+      .mini-cta__inner {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1027,6 +1305,10 @@
 
       .service-card, .pricing-card, .advanced-card {
         padding: 20px 18px;
+      }
+
+      .hero__stats {
+        gap: 16px;
       }
     }
   </style>
@@ -1061,90 +1343,115 @@
   <section class="hero" id="top">
     <div class="container">
       <div class="hero__inner">
-        <div class="hero__eyebrow">採用の壁打ち顧問 · LINE/Slackで相談</div>
-        <h1 class="hero__headline">
-          採用の判断を、<br><em>ひとりで抱えない。</em><br>
-          <span style="font-size: 0.65em; letter-spacing: -0.01em;">LINE/Slackで"採用の壁打ち"をいつでも。</span>
-        </h1>
-        <p class="hero__sub">
-          採用が止まる原因の多くは「進行不全」「基準不在」「属人化」。<br>
-          施策の前に<strong>"型"</strong>を整え、社内で回る採用に近づけます。
-        </p>
-        <div class="hero__benefits">
-          <div class="hero__benefit">
-            <div class="hero__benefit-icon">⚡</div>
-            <div class="hero__benefit-text">
-              <strong>意思決定が速くなる</strong>
-              <span>求人・面接・合否・クロージングの判断をサポート</span>
+        <div class="hero__content">
+          <div class="hero__eyebrow">採用伴走サービス by LibOra · LINE/Slackで相談</div>
+          <h1 class="hero__headline">
+            採用の判断を、<br><em>ひとりで抱えない。</em>
+          </h1>
+          <p class="hero__sub">
+            採用が止まる原因の多くは「進行不全」「基準不在」「属人化」。<br>
+            施策の前に<strong>"型"</strong>を整え、社内で回る採用に近づけます。
+          </p>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <div class="hero__stat-num">10<span>年以上</span></div>
+              <div class="hero__stat-label">人事・採用領域の経験</div>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <div class="hero__stat-num">24h<span>以内</span></div>
+              <div class="hero__stat-label">平日の相談対応目安</div>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <div class="hero__stat-num">内製化<span>前提</span></div>
+              <div class="hero__stat-label">ノウハウが社内に残る</div>
             </div>
           </div>
-          <div class="hero__benefit">
-            <div class="hero__benefit-icon">🎯</div>
-            <div class="hero__benefit-text">
-              <strong>ミスマッチが減る</strong>
-              <span>要件・面接基準・評価の整理で採用精度が上がる</span>
-            </div>
+          <div class="hero__cta-group">
+            <a href="#contact" class="btn btn--accent btn--lg">無料で相談する（30分）</a>
+            <a href="#service" class="btn btn--outline">サービス内容を見る</a>
           </div>
-          <div class="hero__benefit">
-            <div class="hero__benefit-icon">🔄</div>
-            <div class="hero__benefit-text">
-              <strong>属人化を解消できる</strong>
-              <span>会議体・KPI・テンプレの整備で組織の採用力を底上げ</span>
-            </div>
+          <p class="hero__note">
+            採用代行（実務の丸投げ）は行いません。内製化前提の支援です。
+          </p>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__img-wrap">
+            <img src="img/hero.jpg" alt="採用の壁打ちミーティング" loading="eager">
           </div>
         </div>
-        <div class="hero__cta-group">
-          <a href="#contact" class="btn btn--accent btn--lg">無料で相談する（30分）</a>
-          <a href="#service" class="btn btn--outline">サービス内容を見る</a>
-        </div>
-        <p class="hero__note">
-          採用代行（実務の丸投げ）は行いません。内製化前提の支援です。
-        </p>
       </div>
     </div>
   </section>
 
+  <!-- Wave -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#F8F9FA"/>
+    </svg>
+  </div>
+
   <!-- ===== Pain ===== -->
   <section class="section section--alt" id="pain">
     <div class="container">
-      <span class="section-label">こんな悩みありませんか？</span>
+      <span class="section-label">Pain Points</span>
       <h2 class="section-title">採用が"進まない"のには、理由がある。</h2>
       <p class="section-desc">
         多くの企業の採用課題は、施策の問題ではなく<strong>設計・体制・判断の問題</strong>です。
       </p>
       <div class="pain__grid">
         <div class="pain__item fade-in">
-          <div class="pain__icon">🌀</div>
+          <div class="pain__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
           <p class="pain__text">採用の優先順位が決められず、施策が散っている</p>
         </div>
         <div class="pain__item fade-in">
-          <div class="pain__icon">⏱</div>
+          <div class="pain__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
           <p class="pain__text">現場が動かず、面接設定・合否が遅れて失注する</p>
         </div>
         <div class="pain__item fade-in">
-          <div class="pain__icon">⚖️</div>
+          <div class="pain__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </div>
           <p class="pain__text">面接官ごとに評価がバラバラで、ミスマッチが増える</p>
         </div>
         <div class="pain__item fade-in">
-          <div class="pain__icon">📦</div>
+          <div class="pain__icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
           <p class="pain__text">採用代行を検討しているが、ノウハウが残らないのが不安</p>
         </div>
         <div class="pain__item fade-in">
-          <div class="pain__icon">🙋</div>
+          <div class="pain__icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <p class="pain__text">兼務人事で手が回らず、相談相手がいない</p>
         </div>
         <div class="pain__item fade-in">
-          <div class="pain__icon">💭</div>
+          <div class="pain__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
           <p class="pain__text">いまの外注/代行にモヤモヤしているが、どう立て直せばいいか分からない</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Wave -->
+  <div class="wave" style="background:#F8F9FA;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C480,0 960,60 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
   <!-- ===== Services ===== -->
   <section class="section" id="service">
     <div class="container">
-      <span class="section-label">サービス内容</span>
+      <span class="section-label">Services</span>
       <h2 class="section-title">採用の"設計"を、<br>一緒に整えます。</h2>
       <p class="section-desc">
         相談・ツール提供・MTGを組み合わせて、採用が社内で回る状態をつくります。
@@ -1152,7 +1459,9 @@
       <div class="services__grid">
         <div class="service-card fade-in">
           <div class="service-card__num">01</div>
-          <div class="service-card__icon">💬</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
           <h3 class="service-card__title">LINE/Slackで<br>随時相談（壁打ち）</h3>
           <p class="service-card__desc">
             求人票・要件定義・スカウト文面・面接設計・評価基準・進行管理・採用会議の設計など、採用のあらゆる判断を一緒に考えます。
@@ -1160,7 +1469,9 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-card__num">02</div>
-          <div class="service-card__icon">📋</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+          </div>
           <h3 class="service-card__title">テンプレ・型の提供</h3>
           <p class="service-card__desc">
             KPI表・週次採用会議アジェンダ・面接評価シート・候補者への連絡テンプレなど、すぐ使える型をご提供します。
@@ -1168,7 +1479,9 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-card__num">03</div>
-          <div class="service-card__icon">📅</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
           <h3 class="service-card__title">月次/隔週MTG</h3>
           <p class="service-card__desc">
             状況整理 → 詰まりの特定 → 次の打ち手の決定まで。定例MTGで採用の歯車を回し続けます。
@@ -1176,7 +1489,9 @@
         </div>
         <div class="service-card fade-in">
           <div class="service-card__num">04</div>
-          <div class="service-card__icon">🔍</div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
           <h3 class="service-card__title">「このままでは厳しい」の<br>判断も明確に</h3>
           <p class="service-card__desc">
             要件の曖昧さ・現場巻き込み不足・会議体不在・KPI未整備など、問題の根本を正直にフィードバックします。
@@ -1186,17 +1501,24 @@
     </div>
   </section>
 
+  <!-- Wave -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#F8F9FA"/>
+    </svg>
+  </div>
+
   <!-- ===== Pricing ===== -->
   <section class="section section--alt" id="pricing">
     <div class="container">
-      <span class="section-label">料金</span>
+      <span class="section-label">Pricing</span>
       <h2 class="section-title">シンプルな2プラン。</h2>
       <p class="section-desc">
         採用の相談頻度・MTG回数に応じてお選びいただけます。
       </p>
       <div class="pricing__grid">
         <div class="pricing-card fade-in">
-          <div class="pricing-card__name">ライト</div>
+          <div class="pricing-card__name">Light</div>
           <div class="pricing-card__price">10<span>万円</span></div>
           <div class="pricing-card__tax">/ 月・税別</div>
           <div class="pricing-card__divider"></div>
@@ -1209,7 +1531,7 @@
         </div>
         <div class="pricing-card pricing-card--featured fade-in">
           <div class="pricing-card__badge">おすすめ</div>
-          <div class="pricing-card__name">スタンダード</div>
+          <div class="pricing-card__name">Standard</div>
           <div class="pricing-card__price">20<span>万円</span></div>
           <div class="pricing-card__tax">/ 月・税別</div>
           <div class="pricing-card__divider"></div>
@@ -1230,15 +1552,91 @@
     </div>
   </section>
 
-  <!-- ===== Results ===== -->
-  <section class="section" id="results">
+  <!-- Mini CTA -->
+  <div class="mini-cta">
     <div class="container">
-      <span class="section-label">支援実績</span>
+      <div class="mini-cta__inner">
+        <div class="mini-cta__text">
+          <strong>まずは無料で30分、話しましょう。</strong>
+          <span>「相談すべきことがあるかどうか」からでも大丈夫です。</span>
+        </div>
+        <a href="#contact" class="btn btn--white">無料相談する →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Profile ===== -->
+  <section class="section" id="profile">
+    <div class="container">
+      <span class="section-label">About</span>
+      <h2 class="section-title">採用伴走サービスについて。</h2>
+      <div class="profile__inner fade-in">
+        <div class="profile__card">
+          <div class="profile__avatar">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="profile__name">LibOra 代表</div>
+          <div class="profile__role">採用伴走サービス 代表</div>
+          <div class="profile__tags">
+            <span class="profile__tag">人事・採用</span>
+            <span class="profile__tag">AI×採用</span>
+            <span class="profile__tag">RPO設計</span>
+            <span class="profile__tag">内製化支援</span>
+          </div>
+        </div>
+        <div class="profile__content">
+          <p class="profile__headline">
+            採用を「仕組み」にする専門家として、<br>スタートアップ・中小企業の現場を支援。
+          </p>
+          <p class="profile__desc">
+            人事・採用領域10年以上の経験をベースに、採用が「属人化」や「進行不全」に陥っている組織の課題を整理し、社内で回る採用の仕組みづくりを支援しています。代行ではなく、採用ノウハウを社内に残すことを最優先にした伴走型のスタイルで、AI活用も含めた実践的な支援が強みです。
+          </p>
+          <div class="profile__items">
+            <div class="profile__item">
+              <div class="profile__item-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span>人事・採用領域 10年以上の実務経験</span>
+            </div>
+            <div class="profile__item">
+              <div class="profile__item-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span>スタートアップ・中小企業での採用設計・運用支援</span>
+            </div>
+            <div class="profile__item">
+              <div class="profile__item-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span>AI×採用プロセス最適化（書類選考・日程調整・KPI管理の仕組み化）</span>
+            </div>
+            <div class="profile__item">
+              <div class="profile__item-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span>採用代行からの卒業・内製化移行の実績あり</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#F8F9FA"/>
+    </svg>
+  </div>
+
+  <!-- ===== Results ===== -->
+  <section class="section section--alt" id="results">
+    <div class="container">
+      <span class="section-label">Case Study</span>
       <h2 class="section-title">実際の支援事例。</h2>
       <div class="result-card fade-in">
-        <div class="result-card__tag">進行中</div>
-        <div class="result-card__company">IT系中小企業（従業員30名規模）</div>
-        <div class="result-card__subtitle">中途採用の採用伴走支援</div>
+        <div class="result-card__company">IT系企業（従業員数名・採用立ち上げ期）</div>
+        <div class="result-card__subtitle">中途採用 ゼロからの立ち上げ支援</div>
         <ul class="result-card__items">
           <li class="result-card__item">採用KPI設計（ターゲット・媒体・各ステージの目標数値を整理）</li>
           <li class="result-card__item">週次採用会議の立ち上げ（アジェンダ・進行・議事録テンプレ作成）</li>
@@ -1248,47 +1646,10 @@
     </div>
   </section>
 
-  <!-- ===== Advanced ===== -->
-  <section class="section section--alt" id="advanced">
-    <div class="container">
-      <span class="section-label">さらに深くやりたい場合</span>
-      <h2 class="section-title">採用OSを、根本から整える。</h2>
-      <p class="section-desc">
-        壁打ち顧問から始めて、課題が明確になったら次のステップへ。
-      </p>
-      <div class="advanced__grid">
-        <div class="advanced-card fade-in">
-          <div class="advanced-card__price">20万円（税別）</div>
-          <h3 class="advanced-card__title">2週間診断</h3>
-          <p class="advanced-card__desc">
-            採用の詰まりを徹底的に特定し、内製化ロードマップを作成。現状分析から改善優先度の整理まで、2週間で一気に見通しをつけます。
-          </p>
-        </div>
-        <div class="advanced-card fade-in">
-          <div class="advanced-card__price">150万円（税別）/ 3ヶ月</div>
-          <h3 class="advanced-card__title">採用代行 卒業・移管プログラム</h3>
-          <p class="advanced-card__desc">
-            採用OSを実装し、移管完了まで支援。代行依存からの脱却を、3ヶ月で完結します。採用ノウハウを社内に根付かせます。
-          </p>
-        </div>
-      </div>
-      <div class="advanced__flow fade-in">
-        <div class="advanced__flow-title">一本道でつながる支援の流れ</div>
-        <div class="advanced__flow-steps">
-          <span class="advanced__flow-step">壁打ち顧問</span>
-          <span class="advanced__flow-arrow">→</span>
-          <span class="advanced__flow-step">2週間診断</span>
-          <span class="advanced__flow-arrow">→</span>
-          <span class="advanced__flow-step">卒業・移管プログラム</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== Fit ===== -->
   <section class="section" id="fit">
     <div class="container">
-      <span class="section-label">向いている会社 / 向いていない会社</span>
+      <span class="section-label">Right Fit</span>
       <h2 class="section-title">LibOraが合う会社・合わない会社。</h2>
       <p class="section-desc">
         ミスマッチを防ぐため、正直にお伝えします。
@@ -1332,11 +1693,18 @@
     </div>
   </section>
 
+  <!-- Wave -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#F8F9FA"/>
+    </svg>
+  </div>
+
   <!-- ===== FAQ ===== -->
   <section class="section section--alt" id="faq">
     <div class="container">
-      <span class="section-label">よくある質問</span>
-      <h2 class="section-title">気になること、まとめました。</h2>
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">採用支援について、<br>よくあるご質問。</h2>
       <div class="faq__list">
         <div class="faq__item">
           <button class="faq__question">
@@ -1386,14 +1754,14 @@
   <section class="section contact" id="contact">
     <div class="container">
       <div class="contact__inner">
-        <span class="section-label" style="color: rgba(255,255,255,0.6);">お問い合わせ</span>
+        <span class="section-label" style="color: rgba(255,255,255,0.5);">Contact</span>
         <h2 class="section-title">まずは無料で30分、<br>話しましょう。</h2>
         <p class="section-desc" style="margin: 0 auto 0; text-align: center;">
           現状をお聞きした上で、最適なプランをご提案します。<br>
           「相談すべきことがあるかどうか」から話せます。
         </p>
         <div class="contact__actions">
-          <a href="mailto:info@libora-lab.com" class="btn btn--accent btn--lg">
+          <a href="mailto:info@libora-lab.com" class="btn btn--white btn--lg">
             お問い合わせはこちら
           </a>
         </div>
@@ -1421,7 +1789,6 @@
       navMobile.classList.toggle('is-open');
     });
 
-    // Close mobile nav on link click
     navMobile.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('is-open');
@@ -1436,13 +1803,11 @@
         const answer = item.querySelector('.faq__answer');
         const isOpen = item.classList.contains('is-open');
 
-        // Close all
         document.querySelectorAll('.faq__item').forEach(i => {
           i.classList.remove('is-open');
           i.querySelector('.faq__answer').classList.remove('is-open');
         });
 
-        // Toggle clicked
         if (!isOpen) {
           item.classList.add('is-open');
           answer.classList.add('is-open');
@@ -1452,7 +1817,6 @@
 
     // ===== Scroll Fade-in Animation =====
     const fadeEls = document.querySelectorAll('.fade-in');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1461,20 +1825,17 @@
         }
       });
     }, {
-      threshold: 0.1,
+      threshold: 0.08,
       rootMargin: '0px 0px -40px 0px'
     });
-
     fadeEls.forEach(el => observer.observe(el));
 
     // ===== Header scroll shadow =====
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        header.style.boxShadow = '0 2px 16px rgba(0,0,0,0.1)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 2px 16px rgba(0,0,0,0.1)'
+        : 'none';
     }, { passive: true });
   </script>
 </body>
